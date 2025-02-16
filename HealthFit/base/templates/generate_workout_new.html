@@ -1,0 +1,260 @@
+<form method="post">
+    {% csrf_token %}
+    <h3>Select Equipment:</h3>
+    {% for equipment in equipment_choices %}
+    <div>
+        <input type="checkbox" name="equipment" value="{{ equipment }}" id="eq_{{ forloop.counter }}">
+        <label for="eq_{{ forloop.counter }}">{{ equipment }}</label>
+    </div>
+    {% endfor %}
+    
+    <h3>Select Muscle Groups:</h3>
+    {% for muscle in muscle_choices %}
+    <div>
+        <input type="checkbox" name="muscles" value="{{ muscle }}" id="muscle_{{ forloop.counter }}">
+        <label for="muscle_{{ forloop.counter }}">{{ muscle }}</label>
+    </div>
+    {% endfor %}
+    
+    <button type="submit">Generate Workout</button>
+</form>
+
+
+
+<section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-dialog-section-8" id="Тренировки-AI">
+    <div class="u-align-center u-container-align-center u-container-style u-dialog u-image u-image-1" data-image-width="7304" data-image-height="4227">
+      <div class="u-container-layout u-valign-top u-container-layout-2">
+        <div class="u-form u-form-2">
+          <form class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0px;" source="email" name="form">
+            <div class="u-form-group u-form-select u-form-group-9">
+              <label for="select-9bba" class="u-label u-text-grey-80 u-label-9">Прорабатываемая группа мышц</label>
+              <div class="u-form-select-wrapper">
+                <select id="select-9bba" name="muscle_group_work" class="u-grey-5 u-input u-input-rectangle u-radius u-input-9">
+                  <option value="Плечевые мышцы" data-calc="">Плечевые мышцы</option>
+                  <option value="Мышцы рук" data-calc="">Мышцы рук</option>
+                  <option value="Грудные мышцы" data-calc="">Грудные мышцы</option>
+                  <option value="Мышцы пресса" data-calc="">Мышцы пресса</option>
+                  <option value="Мышцы спины" data-calc="">Мышцы спины</option>
+                  <option value="Мышцы ног" data-calc="">Мышцы ног</option>
+                </select>
+                <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-form-group-10">
+              <label for="select-b0fa" class="u-label u-text-grey-80 u-label-10">Используемое оборудование</label>
+              <div class="u-form-select-wrapper">
+                <select id="select-b0fa" name="equipment" class="u-grey-5 u-input u-input-rectangle u-radius u-input-10">
+                  <option value="Собственный вес" data-calc="">Собственный вес</option>
+                  <option value="Штанга" data-calc="">Штанга</option>
+                  <option value="Гантели" data-calc="">Гантели</option>
+                  <option value="Фитнес резинка" data-calc="">Фитнес резинка</option>
+                </select>
+                <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+              </div>
+            </div>
+            <div class="u-align-center u-form-group u-form-submit">
+                <a  class="u-button-style u-nav-link u-active-grey-70 u-border-none u-btn u-btn-round u-button-style u-grey-80 u-hover-grey-75 u-radius u-btn-2">Сгенерировать тренировку </a>
+              <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
+            </div>
+          </form>
+        </div>
+      </div><button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-efe9"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-efe9"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+    </div>
+    <style>.u-dialog-section-8 .u-image-1 {
+      width: 800px;
+      min-height: 250px;
+      background-image: url("/static/images/top-view-weights-with-water-bottle-copy-space.jpg"), url("https://images.unsplash.com/photo-1676312834443-06c9ec87c8f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NzgzNjl8MHwxfHNlYXJjaHw3M3x8ZHVtYmJlbGxzfGVufDB8fHx8MTczMjEzNTAwNHww&ixlib=rb-4.0.3&q=80&w=1080");
+      background-position: 23.21% 50%, 50% 50%;
+      background-size: cover, cover;
+      margin: 60px auto;
+    }
+    
+    .u-dialog-section-8 .u-container-layout-2 {
+      padding: 30px;
+    }
+    
+    .u-dialog-section-8 .u-form-2 {
+      height: 250px;
+      width: 430px;
+      margin: 0 auto;
+    }
+    
+    .u-dialog-section-8 .u-label-6 {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .u-dialog-section-8 .u-input-6 {
+      font-size: 1.25rem;
+      --radius: 15px;
+    }
+    
+    .u-dialog-section-8 .u-form-group-7 {
+      margin-left: 0;
+    }
+    
+    .u-dialog-section-8 .u-label-7 {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .u-dialog-section-8 .u-input-7 {
+      font-size: 1.25rem;
+      --radius: 15px;
+    }
+    
+    .u-dialog-section-8 .u-form-group-8 {
+      margin-left: 0;
+    }
+    
+    .u-dialog-section-8 .u-label-8 {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .u-dialog-section-8 .u-input-8 {
+      font-size: 1.25rem;
+      --radius: 15px;
+    }
+    
+    .u-dialog-section-8 .u-form-group-9 {
+      margin-left: 0;
+    }
+    
+    .u-dialog-section-8 .u-label-9 {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .u-dialog-section-8 .u-input-9 {
+      font-size: 1.25rem;
+      --radius: 15px;
+    }
+    
+    .u-dialog-section-8 .u-form-group-10 {
+      margin-left: 0;
+    }
+    
+    .u-dialog-section-8 .u-label-10 {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .u-dialog-section-8 .u-input-10 {
+      font-size: 1.25rem;
+      --radius: 15px;
+    }
+    
+    .u-dialog-section-8 .u-btn-2 {
+      background-image: none;
+      border-style: none;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      --radius: 30px;
+      padding-left: 43px;
+      padding-right: 43px;
+      margin: 20px auto;
+    }
+    
+    .u-dialog-section-8 .u-icon-1 {
+      width: 20px;
+      height: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .u-dialog-section-8 .u-image-1 {
+        width: 720px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .u-dialog-section-8 .u-image-1 {
+        width: 540px;
+      }
+    
+      .u-dialog-section-8 .u-container-layout-2 {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .u-dialog-section-8 .u-image-1 {
+        width: 340px;
+      }
+    
+      .u-dialog-section-8 .u-form-2 {
+        width: 320px;
+      }
+    }</style>  
+  </section>
+
+  <script>
+    function showExerciseModal(exerciseId, exerciseName) {
+    currentExerciseId = exerciseId;
+    const modal = document.getElementById('exercise-modal');
+    modal.style.display = 'block';
+}
+
+function addExerciseToWorkout() {
+    const sets = document.getElementById('exercise-sets').value;
+    const reps = document.getElementById('exercise-reps').value;
+    const rest = document.getElementById('exercise-rest').value;
+    const order = document.getElementById('exercise-order').value;
+
+    const formData = new FormData();
+    formData.append('workout_id', currentWorkoutId);
+    formData.append('exercise_id', currentExerciseId);
+    formData.append('sets', sets);
+    formData.append('reps', reps);
+    formData.append('rest_time', rest);
+    formData.append('order', order);
+
+    fetch('{% url "add_exercise_to_workout" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.status === 'success') {
+            document.getElementById('exercise-modal').style.display = 'none';
+            // Clear modal inputs
+            document.getElementById('exercise-sets').value = '';
+            document.getElementById('exercise-reps').value = '';
+            document.getElementById('exercise-rest').value = '';
+            document.getElementById('exercise-order').value = '';
+        }
+    });
+}
+
+// Close modal when clicking on X or outside the modal
+document.querySelector('.close').onclick = function() {
+    document.getElementById('exercise-modal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('exercise-modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Function to get CSRF token from cookies
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+  </script>

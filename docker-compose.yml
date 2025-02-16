@@ -1,0 +1,52 @@
+services:
+  healthfit:
+    build:
+      context: ./HealthFit
+      dockerfile: Dockerfile
+    container_name: apps
+    command: python command.py
+    ports:
+      - '8002:8000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+        restart: true
+
+#  generativeai-service:
+#    build: ./HealthFit
+#    environment:
+#      - GOOGLE_API_KEY=AIzaSyA56tUTFKLGnE0RGla75u5Twc1Tvl-njWk
+
+  generativeai-service:
+    build:
+      context: ./HealthFit  # Указываем контекст сборки
+      dockerfile: Dockerfile  # Указываем Dockerfile
+    container_name: generativeai-container
+    environment:
+      - GOOGLE_API_KEY=AIzaSyA56tUTFKLGnE0RGla75u5Twc1Tvl-njWk
+    command: python base/ai_workout_generation.py
+
+
+  postgres:
+    image: postgres:latest
+    container_name: postgresql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: kilona57
+      POSTGRES_DB: HealthFitDB
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d HealthFitDB" ]
+      interval: 15s
+      retries: 10
+      start_period: 60s
+      timeout: 10s
+    ports:
+      - '5433:5432'
+    restart: always
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+-- -- Создание таблицы auth_user
+-- -- CREATE TABLE auth_user (
+-- --     id SERIAL PRIMARY KEY,
+-- --     password VARCHAR(128),
+-- --     last_login TIMESTAMP WITH TIME ZONE,
+-- --     is_superuser BOOLAN NOT NULL,
+-- --     username VARCHAR(150) NOT NULL,
+-- --     first_name VARCHAR(150) NOT NULL,
+-- --     last_name VARCHAR(150) NOT NULL,
+-- --     email VARCHAR(254) NOT NULL,
+-- --     is_staff BOOLEAN NOT NULL,
+-- --     is_active BOOLEAN NOT NULL,
+-- --     date_joined TIMESTAMP WITH TIME ZONE NOT NULL
+-- -- );
+--
+-- -- -- Создание таблицы base_userprofile
+-- -- CREATE TABLE base_userprofile (
+-- --     id BIGSERIAL PRIMARY KEY,
+-- --     sex VARCHAR(200),
+-- --     height DOUBLE PRECISION,
+-- --     weight DOUBLE PRECISION,
+-- --     desired_weight DOUBLE PRECISION,
+-- --     birth_date DATE,
+-- --     fitness_goal VARCHAR(200),
+-- --     additional_fitness_goals VARCHAR(700),
+-- --     activity VARCHAR(200),
+-- --     type_of_food VARCHAR(200),
+-- --     chest INT,
+-- --     waist INT,
+-- --     hips INT,
+-- --     leg_in_thigh INT,
+-- --     arm INT,
+-- --     user_id INT
+-- -- );
+--
+-- -- Создание таблицы base_mealgroups
+-- CREATE TABLE base_mealgroups (
+--     id BIGSERIAL PRIMARY KEY,
+--     group_name VARCHAR(500)
+-- );
+--
+-- -- Создание таблицы base_recipes
+-- CREATE TABLE base_recipes (
+--     id BIGSERIAL PRIMARY KEY,
+--     recipe_name VARCHAR(500) NOT NULL,
+--     preparation_time VARCHAR(500) NOT NULL,
+--     number_of_portions INT NOT NULL,
+--     weight_portion VARCHAR(500) NOT NULL,
+--     kcal_per_100g DOUBLE PRECISION NOT NULL,
+--     protein_per_100g DOUBLE PRECISION NOT NULL,
+--     fat_per_100g DOUBLE PRECISION NOT NULL,
+--     carb_per_100g DOUBLE PRECISION NOT NULL,
+--     image VARCHAR(500) NOT NULL,
+--     group_id BIGINT NOT NULl,
+--     CONSTRAINT fk_group
+--         FOREIGN KEY (group_id)
+--         REFERENCES base_mealgroups (id)
+--         ON DELETE CASCADE
+--         ON UPDATE CASCADE
+-- );
+--
+-- -- Создание таблицы base_ingredients
+-- CREATE TABLE base_ingredients (
+--     id BIGSERIAL PRIMARY KEY,
+--     ingredient_name VARCHAR(500),
+--     gramming VARCHAR(500),
+--     recipe_id BIGINT,
+--     CONSTRAINT fc_group
+--         FOREIGN KEY (recipe_id)
+--         REFERENCES base_recipes (id)
+--         ON DELETE CASCADE
+--         ON UPDATE CASCADE
+-- );
+--
+-- -- Создание таблицы base_cookingsteps
+-- CREATE TABLE base_cookingsteps (
+--     id BIGSERIAL PRIMARY KEY,
+--     step TEXT,
+--     recipe_id BIGINT
+-- );
+--
+-- -- Создание таблицы base_products
+-- CREATE TABLE base_products (
+--     id BIGSERIAL PRIMARY KEY,
+--     products_name VARCHAR(500) NOT NULL,
+--     protein_per_100g DOUBLE PRECISION NOT NULL,
+--     fat_per_100g DOUBLE PRECISION NOT NULL,
+--     carb_per_100g DOUBLE PRECISION NOT NULL,
+--     kcal_per_100g DOUBLE PRECISION NOT NULL
+-- );
+--
+-- -- Создание таблицы base_exercise
+-- CREATE TABLE base_exercise (
+--     id BIGSERIAL PRIMARY KEY,
+--     name VARCHAR(300) NOT NULL,
+--     description TEXT NOT NULL,
+--     muscle_group VARCHAR(100) NOT NULL,
+--     difficulty INT NOT NULL,
+--     demonstration_video VARCHAR(500) NOT NULL,
+--     demonstration_video_2 VARCHAR(500) NOT NULL,
+--     calories DOUBLE PRECISION NOT NULL,
+--     equipment VARCHAR(100) NOT NULL
+-- );
+--
+-- -- -- Создание таблицы base_workout
+-- -- CREATE TABLE base_workout (
+-- --     id BIGSERIAL PRIMARY KEY,
+-- --     name VARCHAR(200),
+-- --     description TEXT,
+-- --     musle_group VARCHAR(200),
+-- --     equipment VARCHAR(200),
+-- --     difficulty_level INT,
+-- --     created_at TIMESTAMP WITH TIME ZONE,
+-- --     created_by_id INT
+-- -- );
+--
+-- -- -- Создание таблицы base_workoutexercise
+-- -- CREATE TABLE base_workoutexercise (
+-- --     id BIGSERIAL PRIMARY KEY,
+-- --     sets INT NOT NULL,
+-- --     reps INT NOT NULL,
+-- --     rest_time_seconds INT NOT NULL,
+-- --     "order" INT NOT NULL,
+-- --     calories DOUBLE PRECISION NOT NULL,
+-- --     exercise_id BIGINT NOT NULL,
+-- --     workout_id BIGINT NOT NULL
+-- -- );
+--
+-- -- -- Создание таблицы base_targetnutritions
+-- -- CREATE TABLE base_targetnutritions (
+-- --     id BIGSERIAL PRIMARY KEY,
+-- --     target_kcal DOUBLE PRECISION NOT NULL,
+-- --     target_protein DOUBLE PRECISION NOT NULL,
+-- --     target_fat DOUBLE PRECISION NOT NULL,
+-- --     target_carb DOUBLE PRECISION NOT NULL,
+-- --     target_water DOUBLE PRECISION NOT NULL,
+-- --     user_id INT NOT NULL
+-- -- );
+--
+-- -- -- Создание таблицы base_userfood
+-- -- CREATE TABLE base_userfood (
+-- --     id BIGSERIAL PRIMARY KEY,
+-- --     gramming_product INT NOT NULL,
+-- --     kcal DOUBLE PRECISION NOT NULL,
+-- --     protein DOUBLE PRECISION NOT NULL,
+-- --     fat DOUBLE PRECISION NOT NULL,
+-- --     carb DOUBLE PRECISION NOT NULL,
+-- --     meal_group_id BIGINT NOT NULL,
+-- --     product_id BIGINT NOT NULL,
+-- --     user_id INT NOT NULL
+-- -- );
+-- --
+-- -- -- Создание таблицы base_water
+-- -- CREATE TABLE base_water (
+-- --     id BIGSERIAL PRIMARY KEY,
+-- --     water INT,
+-- --     user_id INT
+-- -- );

@@ -1,0 +1,19 @@
+{% if success %}
+<h2>{{ workout.name }}</h2>
+<p>{{ workout.description }}</p>
+
+<h3>Exercises:</h3>
+{% for workout_exercise in workout.workoutexercise_set.all %}
+<div class="exercise">
+    <h4>{{ workout_exercise.exercise.name }}</h4>
+    <p>Sets: {{ workout_exercise.sets }}</p>
+    <p>Reps: {{ workout_exercise.reps }}</p>
+    <p>Rest: {{ workout_exercise.rest_time_seconds }} seconds</p>
+    {% if workout_exercise.exercise.demonstration_video %}
+    <a href="{{ workout_exercise.exercise.demonstration_video }}" target="_blank">Watch Demo</a>
+    {% endif %}
+</div>
+{% endfor %}
+{% else %}
+<p class="error">Error generating workout: {{ error }}</p>
+{% endif %}

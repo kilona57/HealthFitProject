@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness App</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+
+</head>
+
+<body>
+<div class="header">
+    <a href="#" onclick="openModal()" class="btn">Delete Account</a>
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+            <form id="deleteForm" method="post" action="{% url 'main_page' %}">
+                {% csrf_token %}
+                <button type="submit" class="modal-button">Delete Account</button>
+                <button type="button" onclick="closeModal()" class="modal-button" id="cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'password_change' %}" class="btn">Change Password</a>
+    <a href="{% url 'logout' %}" class="btn">Logout</a>
+</div>
+
+<div class="section animated-section">
+    <h2>Welcome to Fitness App</h2>
+    <p>Track your fitness goals, nutrition intake, and meal plans!</p>
+</div>
+
+<div class="section feature-block">
+    <h3>Key Features</h3>
+    <ul>
+        <form action="{% url 'create_workout' %}">
+            <button class="btn" type="submit">Personalized workout</button>
+        </form>
+        <li>Nutrition tracking</li>
+        <li>Progress monitoring</li>
+    </ul>
+    <a href="/features" class="btn">Learn More</a>
+</div>
+
+<div class="section testimonial-block">
+    <h3>Testimonials</h3>
+    <p>"I love how easy it is to track my progress with this app!"</p>
+    <p>"The workout plans are challenging but effective."</p>
+</div>
+
+<div class="section news-section">
+    <h3>Latest News</h3>
+    <ul>
+        <li>New recipe ideas for a healthy diet</li>
+        <li>Tips for improving your running endurance</li>
+    </ul>
+</div>
+<script>
+    // Открыть модальное окно
+    function openModal() {
+        document.getElementById("deleteModal").style.display = "block";
+    }
+
+    // Закрыть модальное окно
+    function closeModal() {
+        document.getElementById("deleteModal").style.display = "none";
+    }
+</script>
+</body>
+
+</html>

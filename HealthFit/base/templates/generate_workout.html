@@ -1,0 +1,20 @@
+<form method="post">
+    {% csrf_token %}
+    <h3>Select Equipment:</h3>
+    {% for equipment in equipment_choices %}
+    <div>
+        <input type="checkbox" name="equipment" value="{{ equipment }}" id="eq_{{ forloop.counter }}">
+        <label for="eq_{{ forloop.counter }}">{{ equipment }}</label>
+    </div>
+    {% endfor %}
+    
+    <h3>Select Muscle Groups:</h3>
+    {% for muscle in muscle_choices %}
+    <div>
+        <input type="checkbox" name="muscles" value="{{ muscle }}" id="muscle_{{ forloop.counter }}">
+        <label for="muscle_{{ forloop.counter }}">{{ muscle }}</label>
+    </div>
+    {% endfor %}
+    
+    <button type="submit">Generate Workout</button>
+</form>
