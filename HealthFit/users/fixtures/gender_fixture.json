@@ -1,0 +1,16 @@
+[
+    {
+        "model": "users.Gender",
+        "fields": {
+            "name": "Мужской",
+            "code": "M"
+        }
+    },
+    {
+        "model": "users.Gender",
+        "fields": {
+            "name": "Женский",
+            "code": "F"
+        }
+    }
+]

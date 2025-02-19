@@ -1,0 +1,56 @@
+[
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Улучшить взаимоотношения с едой"
+        }
+    },
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Научиться готовить здоровую еду"
+        }
+    },
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Контролировать потребление КБЖУ"
+        }
+    },
+        {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Проработать грудные мыщцы"
+        }
+    },
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Проработать мышцы спины"
+        }
+    },
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Проработать мыщцы рук"
+        }
+    },
+        {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Проработать мышцы ног"
+        }
+    },
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Проработать плечевые мыщцы"
+        }
+    },
+    {
+        "model": "users.AdditionalGoal",
+        "fields": {
+            "name": "Проработать мыщцы пресса"
+        }
+    }
+]

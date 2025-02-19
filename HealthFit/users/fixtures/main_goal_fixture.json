@@ -1,0 +1,26 @@
+[
+    {
+        "model": "users.MainGoal",
+        "fields": {
+            "name": "Похудение"
+        }
+    },
+    {
+        "model": "users.MainGoal",
+        "fields": {
+            "name": "Поддержание текущей формы"
+        }
+    },
+    {
+        "model": "users.MainGoal",
+        "fields": {
+            "name": "Набор веса"
+        }
+    },
+    {
+        "model": "users.MainGoal",
+        "fields": {
+            "name": "Набор мышечной массы"
+        }
+    }
+]

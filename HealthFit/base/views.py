@@ -18,7 +18,7 @@ from django.contrib import messages
 
 
 class MainPageView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'main_page_for_authorized_users.html'
 
     def post(self, request):
         if request.method == 'POST':
@@ -31,7 +31,7 @@ class MainPageView(TemplateView):
 
 
 class RegistrationView(View):
-    template_name = 'Регистрация.html'
+    template_name = 'registration_page.html'
 
     def get(self, request):
         return render(request, self.template_name)
@@ -65,9 +65,9 @@ def login_user(request):
 
         else:
             error_message = 'Incorrect email or password. Please try again.'
-            return render(request, 'login_page.html', {'error_message': error_message})
+            return render(request, 'authorization_page.html', {'error_message': error_message})
 
-    return render(request, 'login_page.html')
+    return render(request, 'authorization_page.html')
 
 
 def user_logout(request):
@@ -77,9 +77,9 @@ def user_logout(request):
 
 def main_page_for_logout_user(request):
     if request.user.is_authenticated:
-        return render(request, 'index.html')
+        return render(request, 'main_page_for_authorized_users.html')
     else:
-        return render(request, 'index_copy.html')
+        return render(request, 'main_page.html')
 
 
 class CustomPasswordChangeView(PasswordChangeView):
@@ -89,7 +89,7 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 
 class AddBodyParams(View):
-    template_name = 'Информация о пользователе.html'
+    template_name = 'user_information_page.html'
 
     def get(self, request):
         return render(request, self.template_name)
